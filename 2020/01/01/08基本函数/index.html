@@ -1,0 +1,212 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5"><title>08基本函数 | Hexo</title><meta name="description" content="08基本函数"><meta name="author" content="FangYuan"><meta name="copyright" content="FangYuan"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin><link rel="preconnect" href="//busuanzi.ibruce.info"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="08基本函数"><meta name="twitter:description" content="08基本函数"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/default.png"><meta property="og:type" content="article"><meta property="og:title" content="08基本函数"><meta property="og:url" content="http://yoursite.com/2020/01/01/08%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="08基本函数"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/default.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = 'false'
+var t = Cookies.get("theme");
+if (autoChangeMode == '1'){
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+if (t === undefined){
+  if (isLightMode) activateLightMode()
+  else if (isDarkMode) activateDarkMode()
+  else if (isNotSpecified || hasNoSupport){
+    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+    now = new Date();
+    hour = now.getHours();
+    isNight = hour < 6 || hour >= 18
+    isNight ? activateDarkMode() : activateLightMode()
+}
+} else if (t == 'light') activateLightMode()
+else activateDarkMode()
+
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="http://yoursite.com/2020/01/01/08%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0/"><link rel="prev" title="09javaweb之servlet" href="http://yoursite.com/2020/01/06/09javaweb%E4%B9%8Bservlet/"><link rel="next" title="07mechine" href="http://yoursite.com/2019/12/28/07mechine/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  isHome: false,
+  isPost: true
+  
+}</script><meta name="generator" content="Hexo 4.2.0"></head><body><header> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">Hexo</a></span><span class="toggle-menu pull_right close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 清单</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></span></div></header><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">10</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 清单</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div><div id="mobile-sidebar-toc"><div class="toc_mobile_headline">目录</div><div class="sidebar-toc__content"><ol class="toc_mobile_items"><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#Python-format函数"><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">Python format函数</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#1-内容："><span class="toc_mobile_items-number">1.1.</span> <span class="toc_mobile_items-text">1. 内容：</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#2-省略字段名"><span class="toc_mobile_items-number">1.2.</span> <span class="toc_mobile_items-text">2 省略字段名</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#3-数字形式的简单字段名"><span class="toc_mobile_items-number">1.3.</span> <span class="toc_mobile_items-text">3 数字形式的简单字段名</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#4-变量名形式的简单字段名"><span class="toc_mobile_items-number">1.4.</span> <span class="toc_mobile_items-text">4 变量名形式的简单字段名</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#格式说明符"><span class="toc_mobile_items-number">1.5.</span> <span class="toc_mobile_items-text">格式说明符</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#pandas之groupby"><span class="toc_mobile_items-number">2.</span> <span class="toc_mobile_items-text">pandas之groupby</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#groupby就是按xx分组-它也确实是用来实现这样功能的-比如-将一个数据集按A进行分组-效果是这样"><span class="toc_mobile_items-number">2.1.</span> <span class="toc_mobile_items-text">groupby就是按xx分组, 它也确实是用来实现这样功能的. 比如, 将一个数据集按A进行分组, 效果是这样</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#总结"><span class="toc_mobile_items-number">2.2.</span> <span class="toc_mobile_items-text">总结</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#常用函数"><span class="toc_mobile_items-number">3.</span> <span class="toc_mobile_items-text">常用函数</span></a></li></ol></div></div></div><div id="body-wrap"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python-format函数"><span class="toc-number">1.</span> <span class="toc-text">Python format函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-内容："><span class="toc-number">1.1.</span> <span class="toc-text">1. 内容：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-省略字段名"><span class="toc-number">1.2.</span> <span class="toc-text">2 省略字段名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-数字形式的简单字段名"><span class="toc-number">1.3.</span> <span class="toc-text">3 数字形式的简单字段名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-变量名形式的简单字段名"><span class="toc-number">1.4.</span> <span class="toc-text">4 变量名形式的简单字段名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#格式说明符"><span class="toc-number">1.5.</span> <span class="toc-text">格式说明符</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pandas之groupby"><span class="toc-number">2.</span> <span class="toc-text">pandas之groupby</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#groupby就是按xx分组-它也确实是用来实现这样功能的-比如-将一个数据集按A进行分组-效果是这样"><span class="toc-number">2.1.</span> <span class="toc-text">groupby就是按xx分组, 它也确实是用来实现这样功能的. 比如, 将一个数据集按A进行分组, 效果是这样</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">2.2.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常用函数"><span class="toc-number">3.</span> <span class="toc-text">常用函数</span></a></li></ol></div></div></div><main id="content-outer"><div id="top-container" style="background-image: url(https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/default.png)"><div id="post-info"><div id="post-title"><div class="posttitle">08基本函数</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 发表于 2020-01-01<span class="post-meta__separator">|</span><i class="fa fa-history fa-fw" aria-hidden="true"></i> 更新于 2020-01-01</time><div class="post-meta-wordcount"><div class="post-meta-pv-cv"><span><i class="fa fa-eye post-meta__icon fa-fw" aria-hidden="true"> </i>阅读量:</span><span id="busuanzi_value_page_pv"></span></div></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><html><head></head><body><h1 id="Python-format函数"><a href="#Python-format函数" class="headerlink" title="Python format函数"></a>Python format函数</h1><h2 id="1-内容："><a href="#1-内容：" class="headerlink" title="1. 内容："></a>1. 内容：</h2><ol>
+<li>str.format() 方法通过字符串中的花括号 {} 来识别替换字段 replacement field，从而完成字符串的格式化。</li>
+<li>替换字段 由字段名 field name 和转换字段 conversion field 以及格式说明符 format specifier 组成，即一般形式为 {字段名!转换字段:格式说明符}。<h2 id="2-省略字段名"><a href="#2-省略字段名" class="headerlink" title="2 省略字段名"></a>2 省略字段名</h2>花括号内省略字段名，传递位置参数。</li>
+</ol>
+<p>替换字段形式： {}<br>注意：花括号个数可以少于位置参数的个数，反之不然。   </p>
+<pre><code> print('我叫{}，今年{}岁。'.format('小明', 18))
+"""
+我叫小明，今年18岁。
+"""
+
+# 花括号个数可以少于位置参数的个数
+print('我爱吃{}和{}。'.format('香蕉', '苹果', '大鸭梨'))
+"""
+我爱吃香蕉和苹果。
+"""
+
+# 花括号个数多于位置参数的个数则会报错
+# print('我还吃{}和{}。'.format('西红柿'))
+"""
+IndexError: tuple index out of range
+"""</code></pre><h2 id="3-数字形式的简单字段名"><a href="#3-数字形式的简单字段名" class="headerlink" title="3 数字形式的简单字段名"></a>3 数字形式的简单字段名</h2><ol>
+<li>可以通过数字形式的简单字段名传递位置参数。  </li>
+<li>数字必须是大于等于 0 的整数。</li>
+<li>带数字的替换字段可以重复使用。</li>
+<li>数字形式的简单字段名相当于把 format 中的所有位置参数整体当作一个元组，通过字段名中的数字进行取值。<br>即 {0} 等价于 tuple[0]，所以花括号内的数字不能越界。</li>
+</ol>
+<h2 id="4-变量名形式的简单字段名"><a href="#4-变量名形式的简单字段名" class="headerlink" title="4 变量名形式的简单字段名"></a>4 变量名形式的简单字段名</h2><p>使用变量名形式的简单字段名传递关键字参数。</p>
+<pre><code>关键字参数的位置可以随意调换。
+使用变量名形式的简单字段名传递关键字参数
+ print('我大哥是{name}，今年{age}岁。'.format(name='阿飞',age=20))
+ """
+我大哥是阿飞，今年20岁。
+ """</code></pre><h2 id="格式说明符"><a href="#格式说明符" class="headerlink" title="格式说明符"></a>格式说明符</h2><p>在替换字段中，格式说明符前面有一个冒号 : ：</p>
+<pre><code>{字段名!转换字段:格式说明符}
+其中格式说明符本身可以是一个字段名，比如：
+print('{0:{1}}'.format(3.14159, '.4f'))
+"""
+3.1416
+"""</code></pre><h1 id="pandas之groupby"><a href="#pandas之groupby" class="headerlink" title="pandas之groupby"></a>pandas之groupby</h1><h2 id="groupby就是按xx分组-它也确实是用来实现这样功能的-比如-将一个数据集按A进行分组-效果是这样"><a href="#groupby就是按xx分组-它也确实是用来实现这样功能的-比如-将一个数据集按A进行分组-效果是这样" class="headerlink" title="groupby就是按xx分组, 它也确实是用来实现这样功能的. 比如, 将一个数据集按A进行分组, 效果是这样"></a>groupby就是按xx分组, 它也确实是用来实现这样功能的. 比如, 将一个数据集按A进行分组, 效果是这样</h2><p>分组之后的操作方法，mean，std, median, min, max，.value_counts()这些基本的统计数据</p>
+<ul>
+<li>对组内不同列采取操作方法</li>
+</ul>
+<ol>
+<li><p>比如说, 我们按flee分组, 但是我们需要对每一组中的年龄求中位数, 对是否有精神问题求占比</p>
+<blockquote>
+<p>这时我们可以这样做</p>
+</blockquote>
+<p> <code>data.groupby('race').agg({'age': np.median, 'signs_of_mental_illness': np.mean})</code><br> race|age|    signs_of_mental_illness|<br> |-|-|-|<br> |A|    35.0|    0.256410<br> B|    30.0|    0.153722<br> H    |31.0|    0.200946<br> N    |29.0|    0.258065<br> O    |29.5|    0.250000<br> W    |38.0|    0.318068</p>
+</li>
+<li><p>我们需要同时求不同组内, 年龄的均值, 中位数, 方差</p>
+<p><code>data.groupby('flee')['age'].agg([np.mean, np.median, np.std])</code></p>
+</li>
+</ol>
+<p>flee |    mean | median|    std<br>|-|-|-|<br>Car    33.911765    33.0    11.174234<br>Foot    30.972222    30.0    10.193900<br>Not fleeing    38.334753    36.0    13.527702<br>Other    33.239130    33.0    9.932043</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Groupby 可以简单总结为 split, apply, combine, 也就是说:</p>
+<p>split : 先将数据按一个属性分组 (得到 DataFrameGroupby / SeriesGroupby )<br>apply : 对每一组数据进行操作 (取平均 取中值 取方差 或 自定义函数)<br>combine: 将操作后的结果结合起来 (得到一个DataFrame 或 Series 或可视化图像)</p>
+<h1 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h1><ol>
+<li>xx_score = xx_score.sort_values(‘predict’,ascending=False)<br>按照predict列降序排列<ol start="2">
+<li>f1_score(xx_score[‘target’],xx_score[‘score’]<br>传入的分别为真实值，预测值</li>
+<li>data.fillna(0)用0填充缺失的数据</li>
+<li>reset_index()数据清洗时，会将带空值的行删除，此时DataFrame或Series类型的数据不再是连续的索引，可以使用reset_index()重置索引。不想保留原来的index，使用参数 drop=True，默认 False。</li>
+</ol>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>用户的设备</td>
+</tr>
+<tr>
+<td>target</td>
+<td>是否被点击</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>时间戳</td>
+</tr>
+<tr>
+<td>deviced</td>
+<td>设备id</td>
+</tr>
+<tr>
+<td>guid</td>
+<td>用户id</td>
+</tr>
+<tr>
+<td>pos</td>
+<td>位置</td>
+</tr>
+<tr>
+<td>app_version</td>
+<td>app版本</td>
+</tr>
+<tr>
+<td>netmodel</td>
+<td>网络信息</td>
+</tr>
+<tr>
+<td>ts</td>
+<td>时间信息</td>
+</tr>
+<tr>
+<td>datetime</td>
+<td>时间信息</td>
+</tr>
+<tr>
+<td>day</td>
+<td>天</td>
+</tr>
+<tr>
+<td>hour</td>
+<td>小时</td>
+</tr>
+<tr>
+<td>minute</td>
+<td>分钟</td>
+</tr>
+<tr>
+<td>deviceid_prev_day_click_count</td>
+<td>前一天点击次数</td>
+</tr>
+<tr>
+<td>deviceid_prev_total_hour_click_count</td>
+<td>前一小时点击次数</td>
+</tr>
+<tr>
+<td>deviceid_prev_day_count</td>
+<td>前一天曝光量</td>
+</tr>
+<tr>
+<td>deviceid_prev_total_hour_count</td>
+<td>前一小时曝光量</td>
+</tr>
+</tbody></table>
+</body></html></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">FangYuan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://yoursite.com/2020/01/01/08%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0/">http://yoursite.com/2020/01/01/08%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yoursite.com">Hexo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/default.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button button--primary button--animated"> <i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/wechat.jpg" alt="微信"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/alipay.jpg" alt="支付寶"><div class="post-qr-code__desc">支付寶</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2020/01/06/09javaweb%E4%B9%8Bservlet/"><img class="prev_cover lazyload" data-src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/default.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">上一篇</div><div class="prev_info"><span>09javaweb之servlet</span></div></a></div><div class="next-post pull_right"><a href="/2019/12/28/07mechine/"><img class="next_cover lazyload" data-src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/default.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">下一篇</div><div class="next_info"><span>07mechine</span></div></a></div></nav></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2020 By FangYuan</div><div class="framework-info"><span>驱动 </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script></body></html>
